@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('index');})->name('index');
+Route::get('/shoes/extent-nitro-ultraviolet', function () {return view('product');});
