@@ -64,12 +64,9 @@
         </div>
     </nav>
     <!-- Header-->
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-            </div>
+    <header class="bg-dark py-3">
+        <div class="container">
+            <img src="{{ asset('/img/header_2.jpg') }}" class="img-fluid">
         </div>
     </header>
     <!-- Catalog-->
@@ -78,7 +75,7 @@
             <!-- Filter-->
             <div class="col-sm-4">
                 <div class="card mt-5">
-                    <article class="card-group-item">
+                    <article class="card-group-item ">
                         <header class="card-header">
                             <h6 class="title">Price </h6>
                         </header>
@@ -147,13 +144,13 @@
                                         <!-- Product name-->
                                         <h5 class="fw-bolder">Fancy Product</h5>
                                         <!-- Product price-->
-                                        $40.00 - $80.00
+                                        $40.00
                                     </div>
                                 </div>
                                 <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View
-                                            options</a>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -293,8 +290,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View
-                                            options</a>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
                                     </div>
                                 </div>
                             </div>
