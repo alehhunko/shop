@@ -12,6 +12,11 @@ class MainConroller extends Controller
         return view('index');
     }
 
+    public function shoppingCart()
+    {
+        return view('cart');
+    }
+
     public function product($product)
     {
         return view('product');

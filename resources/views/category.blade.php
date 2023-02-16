@@ -1,5 +1,6 @@
 @extends('layouts/main')
 @section('contents')
+@section('title', 'Shop - page catergory- '. $category->name)
 @if ($category->name === 'shoes' || $category->name === 'clothing' || $category->name === 'accessories')
 <!-- Header-->
 <header class="bg-dark py-3">

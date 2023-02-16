@@ -1,4 +1,5 @@
 @extends('layouts/main')
+@section('title', 'Shop - Home page')
 @section('contents')
 <!-- Header-->
 <header class="bg-dark py-3">
@@ -87,7 +88,7 @@
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
                                 <div class="d-flex justify-content-center">
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                                    <button type="button" class="btn btn-outline-dark">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -121,8 +122,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to
-                                        cart</a>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -148,8 +149,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to
-                                        cart</a>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -178,8 +179,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to
-                                        cart</a>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -205,8 +206,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to
-                                        cart</a>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -227,8 +228,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to
-                                        cart</a>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark">Add to cart</button>
                                 </div>
                             </div>
                         </div>
