@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainConroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('index');})->name('index');
-Route::get('/shoes/extent-nitro-ultraviolet', function () {return view('product');});
+Route::get('/', [MainConroller::class, 'index'])->name('index');
+Route::get('/{category}', [MainConroller::class, 'category']);
+Route::get('/{category}/{product}', [MainConroller::class, 'product']);
