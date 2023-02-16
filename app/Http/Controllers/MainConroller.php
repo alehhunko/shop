@@ -14,12 +14,12 @@ class MainConroller extends Controller
 
     public function shoppingCart()
     {
-        return view('cart');
+        return view('shopping_cart');
     }
 
     public function product($product)
     {
-        return view('product');
+        return view('product_cart');
     }
 
     public function category($data)
