@@ -1,5 +1,5 @@
 @extends('layouts/main')
-@section('title', 'Shop - page catergory- '. $category->name)
+@section('title', 'Shop - page catergory- '. $category->code)
 @section('contents')
 <!-- Header-->
 <header class="bg-dark py-3">

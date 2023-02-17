@@ -71,7 +71,14 @@
         <div class="col-sm-8">
             <div class="container ">
                 <div class="row ">
-                    @include('layouts/product')
+                    @foreach ($products as $item)
+                    @include('layouts/product', [
+                    'name' => $item->name,
+                    'price' => $item->price,
+                    'image' => $item->image,
+                    'code' => $item->code
+                    ])
+                    @endforeach
                 </div>
             </div>
         </div>
