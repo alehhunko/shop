@@ -17,7 +17,7 @@ class MainConroller extends Controller
         return view('shopping_cart');
     }
 
-    public function product($product)
+    public function productCart($category, $product)
     {
         return view('product_cart');
     }

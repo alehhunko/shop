@@ -1,7 +1,6 @@
 @extends('layouts/main')
-@section('contents')
 @section('title', 'Shop - page catergory- '. $category->name)
-@if ($category->name === 'shoes' || $category->name === 'clothing' || $category->name === 'accessories')
+@section('contents')
 <!-- Header-->
 <header class="bg-dark py-3">
     <div class="container">
@@ -80,11 +79,10 @@
         <div class="col-sm-8">
             <div class="container ">
                 <div class="row ">
-                    @include('layouts/product', ['some' => $category->name])
+                    @include('layouts/product', ['some' => $category->code])
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endif
 @endsection

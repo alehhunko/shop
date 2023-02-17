@@ -14,8 +14,8 @@
         <!-- Product actions-->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
             <div class="d-flex justify-content-center">
-                <a class="btn btn-outline-primary mt-auto mr-2" href="/shoes/shoes">Options</a>
-                <a class="btn btn-outline-dark mt-auto" href="/shopping_cart">
+                <a class="btn btn-outline-primary mt-auto mr-2" href="{{route('product', [$some??'shoes', 'item'])}}">Options</a>
+                <a class="btn btn-outline-dark mt-auto" href="{{route('cart')}}">
                     <span id="boot-icon" class="bi bi-cart"></span>
                 </a>
             </div>
