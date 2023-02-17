@@ -11,6 +11,8 @@ class MainConroller extends Controller
     public function index()
     {
         $products=Product::get();
+        // $productCategory=$products->category;
+        // dd($productCategory);
         return view('index', compact('products'));
     }
 
