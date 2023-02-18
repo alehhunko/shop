@@ -23,8 +23,9 @@ class MainConroller extends Controller
 
     public function productCart($category, $product)
     {
+        $product_options=Product::where('code', $product)->first();
         $categories = Category::get();
-        return view('product_cart', compact('categories'));
+        return view('product_cart', compact('categories', 'product_options'));
     }
 
     public function category($data)
