@@ -10,25 +10,27 @@ class MainConroller extends Controller
 {
     public function index()
     {
-        $products=Product::get();
-        // $productCategory=$products->category;
-        // dd($productCategory);
-        return view('index', compact('products'));
+        $products = Product::get();
+        $categories = Category::get();
+        return view('index', compact('products', 'categories'));
     }
 
     public function shoppingCart()
     {
-        return view('shopping_cart');
+        $categories = Category::get();
+        return view('shopping_cart', compact('categories'));
     }
 
     public function productCart($category, $product)
     {
-        return view('product_cart');
+        $categories = Category::get();
+        return view('product_cart', compact('categories'));
     }
 
     public function category($data)
     {
-        $category = Category::where('code', $data)->first();
-        return view('category', compact('category'));
+        $category = Category::where('name', $data)->first();
+        $categories = Category::get();
+        return view('category', compact('category', 'categories'));
     }
 }

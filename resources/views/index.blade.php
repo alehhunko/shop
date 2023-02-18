@@ -71,13 +71,12 @@
         <div class="col-sm-8">
             <div class="container ">
                 <div class="row ">
-                    @foreach ($products as $item)
-                    @include('layouts/product', [
-                    'name' => $item->name,
-                    'price' => $item->price,
-                    'image' => $item->image,
-                    'code' => $item->code
-                    ])
+                    @foreach ($products as $product)
+                        @foreach ($categories as $category)
+                            @if ($product->category_id===$category->id)
+                                @include('layouts/product', [compact('product'), $category->name])
+                            @endif
+                        @endforeach
                     @endforeach
                 </div>
             </div>
