@@ -38,13 +38,15 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
-            </form>
+            <div class="form-inline my-2 my-lg-0">
+                <a class="text-decoration-none" href="{{route('shopping_cart')}}">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </a>
+            </div>
         </div>
     </nav>
     @yield('contents')

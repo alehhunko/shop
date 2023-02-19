@@ -1,5 +1,5 @@
 @extends('layouts/main')
-@section('title', 'Shop - shopping cart')
+@section('title', 'Shop - Shopping cart')
 @section('contents')
 <section class="h-100" style="background-color: #eee;">
     <div class="container h-100 py-5">
@@ -156,7 +156,9 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <button type="button" class="btn btn-outline-primary btn-block btn-lg">Proceed to Pay</button>
+                        <a class="text-decoration-none" href="{{route('order')}}">
+                            <button type="button" class="btn btn-outline-primary btn-block btn-lg">Order</button>
+                        </a>
                     </div>
                 </div>
 

@@ -21,11 +21,10 @@ class MainConroller extends Controller
         return view('shopping_cart', compact('categories'));
     }
 
-    public function productCart($category, $product)
+    public function order()
     {
-        $product_options=Product::where('code', $product)->first();
         $categories = Category::get();
-        return view('product_cart', compact('categories', 'product_options'));
+        return view('order', compact('categories'));
     }
 
     public function category($data)
@@ -33,5 +32,12 @@ class MainConroller extends Controller
         $category = Category::where('name', $data)->first();
         $categories = Category::get();
         return view('category', compact('category', 'categories'));
+    }
+
+    public function productCart($category, $product)
+    {
+        $product_options = Product::where('code', $product)->first();
+        $categories = Category::get();
+        return view('product_cart', compact('categories', 'product_options'));
     }
 }
