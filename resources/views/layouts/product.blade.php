@@ -13,14 +13,15 @@
             </div>
         </div>
         <!-- Product actions-->
-        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+        <form class="card-footer p-4 pt-0 border-top-0 bg-transparent " action="{{route('add_to_cart', ['id'=>$product->id])}}" method="POST">
+            @csrf
             <div class="d-flex justify-content-center">
                 <a class="btn btn-outline-primary mt-auto mr-2"
                     href="{{route('product_cart', [$category->name??'shop', $product->code??'shop'])}}">Options</a>
-                <a class="btn btn-outline-dark mt-auto" href="{{route('shopping_cart')}}">
+                <button type="submit" class="btn btn-outline-dark mt-auto">
                     <span id="boot-icon" class="bi bi-cart"></span>
-                </a>
+                </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>

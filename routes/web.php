@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainConroller::class, 'index'])->name('index');
 Route::get('/shopping_cart', [MainConroller::class, 'shoppingCart'])->name('shopping_cart');
+Route::post('/shopping_cart', [MainConroller::class, 'addToCart'])->name('add_to_cart');
 Route::get('/order', [MainConroller::class, 'order'])->name('order');
 Route::get('/{category}/{product}', [MainConroller::class, 'productCart'])->name('product_cart');
 Route::get('/{category}', [MainConroller::class, 'category'])->name('category');
