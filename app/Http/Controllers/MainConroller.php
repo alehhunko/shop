@@ -19,28 +19,28 @@ class MainConroller extends Controller
     public function shoppingCart()
     {
         return view('shopping_cart', [
+            'session' => Cart::instance('default')->content()->all(),
             'categories' => Category::get(),
-            'session' => Cart::instance('default')->content()->first(),
         ]);
     }
 
     public function addToCart(Request $request)
     {
+        $quantity = $request->quantity;
         $product = Product::where('id', $request->id)->first();
-        $cart = Cart::instance('default')->add(
-            $product->id,
-            $product->name,
-            $request->quantity ?? 1,
-            $product->price,
-            0,
-            [
+        Cart::instance('default')->add([
+            'id' =>$product->id,
+            'name' =>$product->name,
+            'qty' =>$quantity++ ?? 1,
+            'price' =>$product->price,
+            'weight' =>0,
+            'options' =>[
                 'category_id' => $product->category_id,
                 'code' => $product->code,
                 'description' => $product->description,
                 'image' => $product->image,
             ]
-        );
-        $categories = Category::get();
+        ])->associate('App\Models\Product');
         return redirect()->route('shopping_cart');
     }
 
