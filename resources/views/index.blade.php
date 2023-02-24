@@ -22,11 +22,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Min</label>
-                                    <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
+                                    <input type="number" min=0 class="form-control" id="inputEmail4" placeholder="$0">
                                 </div>
                                 <div class="form-group col-md-6 text-right">
                                     <label>Max</label>
-                                    <input type="number" class="form-control" placeholder="$1,0000">
+                                    <input type="number" min=10000 class="form-control" placeholder="$1,0000">
                                 </div>
                             </div>
                         </div> <!-- card-body.// -->
