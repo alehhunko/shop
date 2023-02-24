@@ -9,17 +9,7 @@ use Illuminate\Http\Request;
 
 class MainConroller extends Controller
 {
-    public function index()
-    {
-        $products = Product::get();
-        $categories = Category::get();
-        return view('index',[
-            'session_count' => Cart::instance('default')->count(),
-            'products'=>Product::get(), 
-            'categories'=>Category::get(),
-        ]);
-    }
-
+    // start Order
     public function shoppingCart()
     {
         return view('shopping_cart', [
@@ -30,17 +20,23 @@ class MainConroller extends Controller
         ]);
     }
 
+    public function removeFromCart($id)
+    {
+        Cart::instance('default')->remove($id);
+        return back();
+    }
+
     public function addToCart(Request $request)
     {
         $quantity = $request->quantity ?? 1;
         $product = Product::where('id', $request->id)->first();
         Cart::instance('default')->add([
-            'id' =>$product->id,
-            'name' =>$product->name,
-            'qty' =>$quantity++,
-            'price' =>$product->price,
-            'weight' =>0,
-            'options' =>[
+            'id' => $product->id,
+            'name' => $product->name,
+            'qty' => $quantity++,
+            'price' => $product->price,
+            'weight' => 0,
+            'options' => [
                 'category_id' => $product->category_id,
                 'code' => $product->code,
                 'description' => $product->description,
@@ -49,12 +45,23 @@ class MainConroller extends Controller
         ])->associate('App\Models\Product');
         return redirect()->route('shopping_cart');
     }
-
     public function order()
     {
         return view('order', [
             'session_count' => Cart::instance('default')->count(),
-            'categories'=>Category::get(),
+            'categories' => Category::get(),
+        ]);
+    }
+
+    // end Order
+    public function index()
+    {
+        $products = Product::get();
+        $categories = Category::get();
+        return view('index', [
+            'session_count' => Cart::instance('default')->count(),
+            'products' => Product::get(),
+            'categories' => Category::get(),
         ]);
     }
 
@@ -62,8 +69,8 @@ class MainConroller extends Controller
     {
         return view('category', [
             'session_count' => Cart::instance('default')->count(),
-            'category'=> Category::where('name', $data)->first(), 
-            'categories'=> Category::get(),
+            'category' => Category::where('name', $data)->first(),
+            'categories' => Category::get(),
         ]);
     }
 
@@ -71,8 +78,8 @@ class MainConroller extends Controller
     {
         return view('product_cart', [
             'session_count' => Cart::instance('default')->count(),
-            'categories'=> Category::get(), 
-            'product'=> Product::where('code', $product)->first(),
+            'categories' => Category::get(),
+            'product' => Product::where('code', $product)->first(),
         ]);
     }
 }

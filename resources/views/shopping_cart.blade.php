@@ -36,7 +36,7 @@
                                     value="{{$product->qty}}">
                             </td>
                             <td class="actions" data-th="">
-                                 <form class="text-right" {{--action="{{route('edit_cart', ['id'=>$product->id])}}"--}} method="POST"> 
+                                <form class="text-right" action="{{route('remove_from_cart', [$product->rowId])}}" method="POST">
                                     @csrf
                                     <button class="btn btn-white border-secondary bg-white btn-md mb-2">
                                         <i class="bi bi-arrow-repeat" style="font-size: 1.2rem"></i>
