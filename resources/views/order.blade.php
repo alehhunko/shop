@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="m-sm-4">
-                            <form action="{{route('order')}}" method="GET">
+                            <form action="{{route('order_user')}}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label>Name</label>
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <input class="form-control form-control-lg" type="text" name="company"
+                                    <input class="form-control form-control-lg" type="text" name="phone"
                                         placeholder="Enter your phone number">
                                 </div>
                                 <div class="text-center mt-3">
