@@ -9,10 +9,10 @@
                 <table id="shoppingCart" class="table table-condensed table-responsive">
                     <thead>
                         <tr>
-                            <th style="width:60%">Product</th>
-                            <th style="width:12%">Price</th>
-                            <th style="width:10%">Quantity</th>
-                            <th style="width:16%"></th>
+                            <th style="width:62%">Product</th>
+                            <th style="width:10%">Price</th>
+                            <th style="width:13%">Quantity</th>
+                            <th style="width:15%"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,18 +31,22 @@
                                 </div>
                             </td>
                             <td data-th="Price" style="font-size: 1.2rem">${{$product->price}}</td>
-                            <td data-th="Quantity">
-                                <input type="number" class="form-control form-control-lg text-center" name="quantity"
+                            <td data-th="Quantity" >
+                                <form class="text-right d-flex justify-content-center" action="{{route('update_cart', ['rowId'=>$product->rowId])}}" method="POST">
+                                    @csrf
+                                <input class="form-control form-control text-center mr-2" type="number" name="quantity"
                                     value="{{$product->qty}}">
+                                <button type="submit" class="btn btn-outline-dark">
+                                    <i class="bi bi-arrow-repeat"></i>
+                                </button>
+                                </form>
                             </td>
                             <td class="actions" data-th="">
-                                <form class="text-right" action="{{route('remove_from_cart', [$product->rowId])}}" method="POST">
+                                <form class="text-right" action="{{route('remove_from_cart', [$product->rowId])}}"
+                                    method="POST">
                                     @csrf
-                                    <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                        <i class="bi bi-arrow-repeat" style="font-size: 1.2rem"></i>
-                                    </button>
                                     <button type="submit" class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                        <i class="bi bi-trash" style="font-size: 1.2rem"></i>
+                                        <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
                             </td>

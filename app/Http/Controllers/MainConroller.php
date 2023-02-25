@@ -25,6 +25,12 @@ class MainConroller extends Controller
         Cart::instance('default')->remove($id);
         return back();
     }
+    
+    public function updateCart(Request $request)
+    {
+        Cart::instance('default')->update($request->rowId, $request->quantity);
+        return back();
+    }
 
     public function addToCart(Request $request)
     {
