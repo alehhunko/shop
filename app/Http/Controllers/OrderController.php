@@ -67,12 +67,10 @@ class OrderController extends Controller
             'phone' => 'string',
         ]);
         $order = Order::create($data);
-        $products_id = [];
         $session_products = Cart::instance('default')->content()->all();
         foreach ($session_products as $product) {
-            array_push($products_id, $product->id);
+            $order->products()->attach($product->id, ['count' => $product->qty]);
         }
-        $order->products()->attach($products_id);
         return redirect()->route('index');
     }
 }
