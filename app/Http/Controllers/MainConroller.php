@@ -5,16 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 
 class MainConroller extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::get();
-        $categories = Category::get();
+        $data = $request->validate([
+            'name' => 'string',
+        ]);
+        $query = Product::query();
+        if (isset($data['name'])) {
+            $query->where('name', 'like', "%{$data['name']}%");
+        }
+
         return view('index', [
             'session_count' => Cart::instance('default')->count(),
-            'products' => Product::get(),
+            'products' => $query->get(),
             'categories' => Category::get(),
         ]);
     }

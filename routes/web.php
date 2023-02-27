@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/shopping_cart', [OrderController::class, 'shoppingCart'])->name('shopping_cart');
 Route::post('/shopping_cart', [OrderController::class, 'addToCart'])->name('add_to_cart');
 Route::post('/shopping_cart/update', [OrderController::class, 'updateCart'])->name('update_cart');

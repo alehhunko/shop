@@ -45,7 +45,7 @@
                                 <form class="text-right" action="{{route('remove_from_cart', [$product->rowId])}}"
                                     method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-white border-secondary bg-white btn-md mb-2">
+                                    <button type="submit" class="btn btn-outline-dark">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>

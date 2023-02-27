@@ -15,24 +15,28 @@
             <div class="card mt-5">
                 <article class="card-group-item ">
                     <header class="card-header">
-                        <h6 class="title">Price </h6>
+                        <h6 class="title">Seach </h6>
                     </header>
-                    <div class="filter-content">
+                    <form class="filter-content" action="{{route('index')}}" method="GET">
                         <div class="card-body">
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Min</label>
-                                    <input type="number" min=0 class="form-control" id="inputEmail4" placeholder="$0">
+                                <div class="form-group col-md-12">
+                                    {{-- <label>Min</label> --}}
+                                    <input name="name" type="text" class="form-control">
                                 </div>
-                                <div class="form-group col-md-6 text-right">
+                                {{-- <div class="form-group col-md-6 text-right">
                                     <label>Max</label>
-                                    <input type="number" min=10000 class="form-control" placeholder="$1,0000">
-                                </div>
+                                    <input name="price_max" type="number" min=0 value=0 class="form-control">
+                                </div> --}}
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-outline-primary">Filter</button>
                             </div>
                         </div> <!-- card-body.// -->
-                    </div>
+                    </form>
                 </article> <!-- card-group-item.// -->
-                <article class="card-group-item">
+                {{-- <div> {{$products_filter->withQueryString()->links() }} </div> --}}
+                {{-- <article class="card-group-item">
                     <header class="card-header">
                         <h6 class="title">Brand </h6>
                     </header>
@@ -63,7 +67,7 @@
                             </div> <!-- form-check.// -->
                         </div> <!-- card-body.// -->
                     </div>
-                </article> <!-- card-group-item.// -->
+                </article> <!-- card-group-item.// --> --}}
             </div> <!-- card.// -->
 
         </div>
@@ -72,11 +76,11 @@
             <div class="container ">
                 <div class="row ">
                     @foreach ($products as $product)
-                        @foreach ($categories as $category)
-                            @if ($product->category_id===$category->id)
-                                @include('layouts/product', [compact('product'), $category->name])
-                            @endif
-                        @endforeach
+                    @foreach ($categories as $category)
+                    @if ($product->category_id===$category->id)
+                    @include('layouts/product', [compact('product'), $category->name])
+                    @endif
+                    @endforeach
                     @endforeach
                 </div>
             </div>
