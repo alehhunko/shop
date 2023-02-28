@@ -11,15 +11,20 @@ class MainConroller extends Controller
 {
     public function index(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'string',
+        $data= $request->validate([
+            'name' => 'string|max:255|nullable',
         ]);
         $query = Product::query();
         if (isset($data['name'])) {
             $query->where('name', 'like', "%{$data['name']}%");
         }
 
+        if (isset($request->price_min) && isset($request->price_max)) {
+            $query->whereBetween('price', [$request->price_min, $request->price_max]);
+        }
+
         return view('index', [
+            'max_price' => Product::max('price'),
             'session_count' => Cart::instance('default')->count(),
             'products' => $query->get(),
             'categories' => Category::get(),
