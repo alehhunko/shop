@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group col-md-6 text-right">
                                 <label>Max</label>
-                                <input name="price_max" type="number" min=0 max={{$max_price}} class="form-control" value="{{Session::get('old_name')['max']}}">
+                                <input name="price_max" type="number" min=0 max={{$max_price}} class="form-control" value="{{Session::get('old_name')['max'] ?? $max_price}}">
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
