@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <input name="name" type="text" class="form-control">
+                                <input name="name" type="text" class="form-control" value="{{Session::get('old_name')['name']}}">
                             </div>
                         </div>
                     </div> <!-- card-body.// -->
@@ -33,11 +33,11 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Min</label>
-                                <input name="price_min" type="number" min=0 max={{$max_price}} class="form-control">
+                                <input name="price_min" type="number" min=0 max={{$max_price}} class="form-control" value="{{Session::get('old_name')['min'] ?? 0}}">
                             </div>
                             <div class="form-group col-md-6 text-right">
                                 <label>Max</label>
-                                <input name="price_max" type="number" min=0 max={{$max_price}} class="form-control">
+                                <input name="price_max" type="number" min=0 max={{$max_price}} class="form-control" value="{{Session::get('old_name')['max']}}">
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">

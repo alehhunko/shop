@@ -6,11 +6,13 @@ use App\Models\Category;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MainConroller extends Controller
 {
     public function index(Request $request)
     {
+        Session::put('old_name', ['name'=>$request->name, 'max'=>$request->price_max, 'min'=>$request->price_min]);
         $data= $request->validate([
             'name' => 'string|max:255|nullable',
         ]);
