@@ -33,12 +33,27 @@ class MainConroller extends Controller
         ]);
     }
 
-    public function category($data)
+    public function category(Request $request)
     {
+        Session::put('old_name', ['name'=>$request->name, 'max'=>$request->price_max, 'min'=>$request->price_min]);
+        $data= $request->validate([
+            'name' => 'string|max:255|nullable',
+        ]);
+        $query = Product::query()->where('category_id', $request->category_id);
+        if (isset($data['name'])) {
+            $query->where('name', 'like', "%{$data['name']}%");
+            dd($query->get());
+        }
+
+        if (isset($request->price_min) && isset($request->price_max)) {
+            $query->whereBetween('price', [$request->price_min, $request->price_max]);
+        }
         return view('category', [
+            'max_price' => Product::max('price'),
             'session_count' => Cart::instance('default')->count(),
-            'category' => Category::where('name', $data)->first(),
+            'category' => Category::where('name', $request->category)->first(),
             'categories' => Category::get(),
+            'products' => $query->get(),
         ]);
     }
 
