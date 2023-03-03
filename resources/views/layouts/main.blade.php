@@ -33,7 +33,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($categories as $category)
-                        <a class="dropdown-item text-capitalize" href="{{route('category', ['category'=>$category->name, 'category_id'=>$category->id])}}">{{ $category->name }}</a>
+                        <a class="dropdown-item text-capitalize" href="{{route('category', ['category'=>$category->name])}}">{{ $category->name }}</a>
                         @endforeach
                     </div>
                 </li>
