@@ -14,7 +14,6 @@
                     </button>
                 </div>
                 @endif
-
                 <div class="text-center mt-4">
                     <h1 class="h2">Order Confirmation</h1>
                 </div>
