@@ -20,17 +20,18 @@
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input class="form-control form-control-lg" type="text" name="name"
-                                        placeholder="Enter your name">
+                                        placeholder="Enter your name" value="{{ old('name') }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Phone</label>
                                     <input class="form-control form-control-lg" type="text" name="phone"
-                                        placeholder="Enter your phone number">
+                                        placeholder="Enter your phone number" value="{{ old('phone') }}">
                                 </div>
+                                @if ($errors->any())
+                                <div class="alert alert-danger">Error</div>
+                                @endif
                                 <div class="text-center mt-3">
-                                    <a href="index.html" class="btn btn-lg btn-primary">
-                                        <button type="submit" class="btn btn-lg btn-primary">Сonfirm</button>
-                                    </a>
+                                    <button type="submit" class="btn btn-lg btn-primary">Сonfirm</button>
                                 </div>
                             </form>
                         </div>

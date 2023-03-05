@@ -63,14 +63,15 @@ class OrderController extends Controller
     public function orderUser(Request $request)
     {
         $data = $request->validate([
-            'name' => 'string',
-            'phone' => 'string',
+            'name' => 'required|string',
+            'phone' => 'required|string',
         ]);
         $order = Order::create($data);
         $session_products = Cart::instance('default')->content()->all();
         foreach ($session_products as $product) {
             $order->products()->attach($product->id, ['count' => $product->qty]);
         }
+        Cart::destroy();
         return redirect()->route('index');
     }
 }
