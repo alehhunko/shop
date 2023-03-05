@@ -70,7 +70,6 @@ class OrderController extends Controller
         $session_products = Cart::instance('default')->content()->all();
         foreach ($session_products as $product) {
             $order->products()->attach($product->id, ['count' => $product->qty]);
-        }
             session()->flash('success', 'To confirm the order, enter your name and phone number and we will contact you.');
             Cart::destroy();
             return redirect()->route('order');
