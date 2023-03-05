@@ -6,11 +6,17 @@
         <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
             <div class="d-table-cell align-middle">
 
+                @if(Session::has('success'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{ Session::get('success') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+
                 <div class="text-center mt-4">
                     <h1 class="h2">Order Confirmation</h1>
-                    <p class="lead">
-                        To confirm the order, enter your name and phone number and we will contact you.
-                    </p>
                 </div>
                 <div class="card">
                     <div class="card-body">
