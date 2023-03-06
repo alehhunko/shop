@@ -65,6 +65,7 @@ class OrderController extends Controller
 
     public function orderUser(Request $request)
     {
+        
         $data = $request->validate([
             'name' => 'required|string',
             'mail' => 'required|string',
@@ -74,15 +75,16 @@ class OrderController extends Controller
         foreach ($session_products as $product) {
             $order->products()->attach($product->id, ['count' => $product->qty]);
         }
-
+        
         Mail::to('degree_183@mail.ru')->send(new OrderIn([
             'session_products' => Cart::instance('default')->content()->all(),
             'session_total' => Cart::instance('default')->total(),
+            'order'=>$order,
         ]));
-        // Mail::to($order->mail)->send(new OrderOut([
-        //     'session_products' => Cart::instance('default')->content()->all(),
-        //     'session_total' => Cart::instance('default')->total(),
-        // ]));
+        Mail::to($order->mail)->send(new OrderOut([
+            'session_products' => Cart::instance('default')->content()->all(),
+            'session_total' => Cart::instance('default')->total(),
+        ]));
 
         session()->flash('success', 'Your order is accepted');
         Cart::destroy();

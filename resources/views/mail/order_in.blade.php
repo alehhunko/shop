@@ -1,5 +1,6 @@
 <div class="col-lg-12 col-md-12 col-12">
-    <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
+    <h3 class="display-5 mb-2 text-center">Customer:{{ $order->name }}</h3>
+    <h3 class="display-5 mb-2 text-center">Email:{{ $order->mail }}</h3>
     <table id="shoppingCart" class="table table-condensed table-responsive">
         <thead>
             <tr>
@@ -14,35 +15,16 @@
             <tr>
                 <td data-th="Product">
                     <div class="row">
-                        <div class="col-md-3 text-left">
-                            <img src={{ $product->options->image }} alt=""
-                            class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                        </div>
                         <div class="col-md-9 text-left mt-sm-2">
                             <h4>{{$product->name}}</h4>
-                            <p class="font-weight-light">Code:{{ $product->options->code }}</p>
                         </div>
                     </div>
                 </td>
                 <td data-th="Price" style="font-size: 1.2rem">${{$product->price}}</td>
-                <td data-th="Quantity" >
-                    <form class="text-right d-flex justify-content-center" action="{{route('update_cart', ['rowId'=>$product->rowId])}}" method="POST">
-                        @csrf
-                    <input class="form-control form-control text-center mr-2" type="number" name="quantity"
-                        value="{{$product->qty}}">
-                    <button type="submit" class="btn btn-outline-dark">
-                        <i class="bi bi-arrow-repeat"></i>
-                    </button>
-                    </form>
-                </td>
-                <td class="actions" data-th="">
-                    <form class="text-right" action="{{route('remove_from_cart', [$product->rowId])}}"
-                        method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-dark">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </form>
+                <td data-th="Quantity">
+                    <div class="text-right d-flex justify-content-center">
+                     {{$product->qty}}
+                    </div>
                 </td>
             </tr>
             @endforeach
