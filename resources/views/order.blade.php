@@ -6,7 +6,6 @@
         <div class="row w-100">
             <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                 <div class="d-table-cell align-middle">
-
                     @if(Session::has('success'))
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>{{ Session::get('success') }}</strong>
@@ -29,9 +28,9 @@
                                             placeholder="Enter your name" value="{{ old('name') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
-                                        <input class="form-control form-control-lg" type="text" name="phone"
-                                            placeholder="Enter your phone number" value="{{ old('phone') }}">
+                                        <label>Mail</label>
+                                        <input class="form-control form-control-lg" type="text" name="mail"
+                                            placeholder="Enter your mail" value="{{ old('mail') }}">
                                     </div>
                                     @if ($errors->any())
                                     <div class="alert alert-danger">Error</div>

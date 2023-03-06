@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderIn;
+use App\Mail\OrderOut;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -64,14 +67,24 @@ class OrderController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string',
-            'phone' => 'required|string',
+            'mail' => 'required|string',
         ]);
         $order = Order::create($data);
         $session_products = Cart::instance('default')->content()->all();
         foreach ($session_products as $product) {
             $order->products()->attach($product->id, ['count' => $product->qty]);
         }
-        session()->flash('success', 'To confirm the order, enter your name and phone number and we will contact you.');
+
+        Mail::to('degree_183@mail.ru')->send(new OrderIn([
+            'session_products' => Cart::instance('default')->content()->all(),
+            'session_total' => Cart::instance('default')->total(),
+        ]));
+        // Mail::to($order->mail)->send(new OrderOut([
+        //     'session_products' => Cart::instance('default')->content()->all(),
+        //     'session_total' => Cart::instance('default')->total(),
+        // ]));
+
+        session()->flash('success', 'Your order is accepted');
         Cart::destroy();
         return redirect()->route('order');
     }
